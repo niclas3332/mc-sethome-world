@@ -7,12 +7,14 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import xyz.niclas.setHomeNew.HomeManager;
+import xyz.niclas.setHomeNew.SetHomeNew;
 
 public class SetHomeCommand implements CommandExecutor {
     private final HomeManager homeManager;
 
     public SetHomeCommand(HomeManager homeManager) {
         this.homeManager = homeManager;
+
     }
 
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -27,6 +29,12 @@ public class SetHomeCommand implements CommandExecutor {
                 player.sendMessage("§cYou can't have more than " + this.homeManager.getMaxHomes() + " homes");
                 return true;
             } else {
+
+                if( !this.homeManager.getWorlds().contains(player.getWorld().getName())){
+                    player.sendMessage("§aSetHome ist in der Welt " + player.getWorld().getName()+ " verboten.");
+
+                }
+
                 if (this.homeManager.addHome(player, name)) {
                     player.sendMessage("§aYou have created a home with the name " + name);
                 } else {

@@ -2,3 +2,23 @@ name: SetHomeNew
 version: '1.0-SNAPSHOT'
 main: xyz.niclas.setHomeNew.SetHomeNew
 api-version: '1.21'
+commands:
+  sethome:
+    description: Creates a home with the given name
+    usage: /<command> <name>
+    permission: sethome.sethome
+  home:
+    description: Teleports to a home with the given name
+    usage: /<command> <name>
+    permission: sethome.home
+  delhome:
+    description: Deletes a home with the given name
+    usage: /<command> <name>
+    permission: sethome.delhome
+permissions:
+  sethome.sethome:
+    default: true
+  sethome.home:
+    default: true
+  sethome.delhome:
+    default: true

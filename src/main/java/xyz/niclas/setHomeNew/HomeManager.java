@@ -21,14 +21,17 @@ public class HomeManager {
     private final SetHomeNew plugin;
     private final FileConfiguration config;
     private final Map<UUID, List<Home>> homes = new HashMap();
+    private final List<String> worlds = new ArrayList<>();
 
     public HomeManager(SetHomeNew plugin) {
         this.cooldown = plugin.getConfig().getInt("cooldown");
         this.maxHomes = plugin.getConfig().getInt("max-homes");
         this.cancelOnMove = plugin.getConfig().getBoolean("cancel-on-move");
+        this.worlds.addAll(plugin.getConfig().getStringList("allowed-worlds"));
         this.plugin = plugin;
         this.config = YamlConfiguration.loadConfiguration(new File(plugin.getDataFolder(), "homes.yml"));
         this.loadHomes();
+
     }
 
     public boolean isCancelOnMove() {
@@ -41,6 +44,10 @@ public class HomeManager {
 
     public int getCooldown() {
         return this.cooldown;
+    }
+
+    public List<String> getWorlds(){
+        return this.worlds;
     }
 
     public SetHomeNew getPlugin() {
