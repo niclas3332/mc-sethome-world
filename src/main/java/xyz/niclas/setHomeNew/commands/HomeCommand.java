@@ -34,6 +34,11 @@ public class HomeCommand implements CommandExecutor {
                 player.sendMessage("§cYou have no home with that name");
                 return true;
             } else {
+
+                if( !this.homeManager.getWorlds().contains(home.getLocation().getWorld().getName())){
+                    player.sendMessage("§cHome ist in der Welt " + home.getLocation().getWorld().getName()+ " verboten.");
+                    return true;
+                }
                 (new BukkitRunnable() {
                     int seconds;
                     final Location startLocation;

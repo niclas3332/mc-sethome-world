@@ -31,8 +31,8 @@ public class SetHomeCommand implements CommandExecutor {
             } else {
 
                 if( !this.homeManager.getWorlds().contains(player.getWorld().getName())){
-                    player.sendMessage("§aSetHome ist in der Welt " + player.getWorld().getName()+ " verboten.");
-
+                    player.sendMessage("§cSetHome ist in der Welt " + player.getWorld().getName()+ " verboten.");
+                    return true;
                 }
 
                 if (this.homeManager.addHome(player, name)) {
