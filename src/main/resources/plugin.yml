@@ -1,0 +1,4 @@
+name: SetHomeNew
+version: '1.0-SNAPSHOT'
+main: xyz.niclas.setHomeNew.SetHomeNew
+api-version: '1.21'
