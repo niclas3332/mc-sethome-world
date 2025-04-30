@@ -36,7 +36,7 @@ public class HomeCommand implements CommandExecutor {
             } else {
 
                 if(!player.getWorld().getName().equals(home.getLocation().getWorld().getName())){
-                    player.sendMessage("§cHome ist in der Welt " + home.getLocation().getWorld().getName()+ " verboten.");
+                    player.sendMessage("§cHome ist in der Welt " + player.getLocation().getWorld().getName()+ " verboten.");
                     return true;
                 }
 
